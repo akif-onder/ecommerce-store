@@ -10,7 +10,8 @@ import Menu from "@mui/material/Menu";
 import logo from "../../assets/logo.svg";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Badge } from "@mui/material";
-export default function MenuAppBar() {
+
+export default function MenuAppBar({totalProduct}){
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleChange = (event) => {
@@ -51,7 +52,7 @@ export default function MenuAppBar() {
               onClick={handleMenu}
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={totalProduct} color="error">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>

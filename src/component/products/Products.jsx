@@ -1,12 +1,22 @@
 import React from "react";
 import Categories from "../categories/Categories";
-import { Container } from "@mui/system";
-
-const Products = ({ products }) => {
+import { Container, Grid } from "@mui/material";
+import ProductCard from "./ProductCard";
+const Products = ({ products, handleAddProducts }) => {
   return (
     <div>
       <Container>
         <Categories />
+        <Grid container justifyContent="center" spacing={4} sx={{ mt: 1 }}>
+          {products.map((product) => (
+            <Grid item>
+              <ProductCard
+                product={product}
+                handleAddProducts={handleAddProducts}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </div>
   );
